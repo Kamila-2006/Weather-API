@@ -11,3 +11,6 @@ class WeatherData(models.Model):
     wind_direction = models.FloatField()
     precipitation = models.FloatField()
     recorded_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"{self.location} - {self.temperature} °C"

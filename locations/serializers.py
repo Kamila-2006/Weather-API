@@ -7,7 +7,3 @@ class LocationSerializer(serializers.ModelSerializer):
         model = Location
         fields = ['id', 'name', 'latitude', 'longitude', 'elevation', 'created_at']
         read_only_fields = ['id', 'created_at']
-
-class LocationShortSerializer(serializers.ModelSerializer):
-    model = Location
-    fields = ['id', 'name']
