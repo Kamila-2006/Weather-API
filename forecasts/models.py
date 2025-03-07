@@ -12,3 +12,6 @@ class Forecast(models.Model):
     wind_speed = models.FloatField()
     wind_direction = models.FloatField()
     created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"{self.location} - {self.forecast_date}"
