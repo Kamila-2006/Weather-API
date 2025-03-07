@@ -12,3 +12,11 @@ class ForecastListCreateView(generics.ListCreateAPIView):
 class ForecastDetailView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Forecast.objects.all()
     serializer_class = ForecastSerializer
+
+class ForecastsByLocation(generics.ListAPIView):
+    serializer_class = ForecastSerializer
+    pagination_class = ForecastPagination
+
+    def get_queryset(self):
+        location_id = self.kwargs['location_id']
+        return Forecast.objects.filter(location_id=location_id)
